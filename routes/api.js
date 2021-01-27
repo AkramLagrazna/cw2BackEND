@@ -37,7 +37,8 @@ app.get('/collection/:collectionName/:id', (req, res, next) => {
 app.post('/collection/:collectionName', (req, res, next) => {  
   req.collection.insert(req.body, (e, results) => {
     if (e) return next(e)    
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header("Access-Control-Allow-Headers", "*");
     res.send(results.ops)  
   })
 })
