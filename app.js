@@ -17,14 +17,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 /*
-app.use(function(request, response) {
-  console.log("In comes a request to: " + request.url);
-});*/
 app.use(function(request, response, next) {
   console.log("In comes a " + request.method + " to " + request.url);    
   next();
 });
-
+*/
 app.use('/api', apiRouter);
 app.use('/users', usersRouter);
 
