@@ -70,6 +70,8 @@ app.delete('/collection/:collectionName/:id', (req, res, next) => {
     {_id: ObjectID(req.params.id)}, 
     (e, result) => {
       if (e) return next(e)        
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader("Access-Control-Allow-Headers", "*");
       res.send((result.result.n === 1) ? {msg: 'deleted'} : {msg: 'error'})  
     })
   })
