@@ -13,7 +13,8 @@ app.param('collectionName', (req, res, next, collectionName) => {
 })
 app.use(function(req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Headers", "*");
+  res.setHeader("Access-Control-Allow-Headers", "*");      
+  res.setHeader("Access-Control-Allow-Methods","*");
   next();  
 });
 /* GET home page. */
@@ -65,7 +66,7 @@ app.put('/collection/:collectionName/:id', (req, res, next) => {
       if (e) return next(e)      
       res.setHeader("Access-Control-Allow-Origin", "*");
       res.setHeader("Access-Control-Allow-Headers", "*");
-      res.setHeader("Access-Control-Allow-Methods","*");
+      res.setHeader("Access-Control-Allow-Methods","PUT");
       res.send((result.result.n === 1) ? {msg: 'updated'} : {msg: 'error'})    
     })
   })
