@@ -41,6 +41,8 @@ const ObjectID = require('mongodb').ObjectID;
 app.get('/collection/:collectionName/:id', (req, res, next) => {    
   req.collection.findOne({ _id: new ObjectID(req.params.id) }, (e, result) => {
     if (e) return next(e)        
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader("Access-Control-Allow-Headers", "*");
     res.send(result)    
   })
 })
