@@ -6,7 +6,7 @@ var db;
 MongoClient.connect(url, (err, client) => {
   db = client.db('cw2');
   })
-app.setHeader('Access-Control-Allow-Origin', '*');
+//app.setHeader('Access-Control-Allow-Origin', '*');
 app.param('collectionName', (req, res, next, collectionName) => {
   req.collection = db.collection(collectionName);
   return next()
