@@ -25,6 +25,11 @@ app.get('/collection/:collectionName', (req, res, next) => {
     res.send(results)    
   }
   )})
+app.options('/collection/:collectionName', (req, res, next) => {  
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.send(results)    
+  }
+  )})
   
 const ObjectID = require('mongodb').ObjectID;
 app.get('/collection/:collectionName/:id', (req, res, next) => {    
